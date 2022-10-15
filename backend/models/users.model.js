@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Type = require('./types.model');
 
 const userSchema = new mongoose.Schema({
     first_name: {
@@ -28,7 +29,11 @@ const userSchema = new mongoose.Schema({
     },
     city: {
         type: String
-    }
+    },
+    user_type: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Type"
+    }]
 })
 
 const User = mongoose.model('User', userSchema);
