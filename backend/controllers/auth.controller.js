@@ -1,5 +1,29 @@
 const User = require('../models/users.model');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+const login = async(req,res) => {
+    const {email, password} =req.body;
+
+    const user = await User.findOne({email}).select("+password");
+
+    if(!user) return res.status(404).json({message: "Wrong email or password"});
+
+    const matchPassword= bcrypt.compare(password, user.password);
+    if(!matchPassword) return res.status(404).json({message: "Wrong email or password"});
+
+    const token = jwt.sign({
+        first_name: user.first_name,
+        last_name:user.last_name, 
+        email:user.email, 
+        phone_number:user.phone_number, 
+        country:user.country, 
+        city:user.city, 
+        user_type:user.user_type}, 
+        process.env.JWT_SECRET_KEY, 
+        {expiresIn: '2h'});
+    res.status(200).json(token);
+}
 
 const signup = async(req,res) => {
     const {first_name, last_name, email, password, phone_number, country, city, user_type}=req.body;
@@ -25,5 +49,6 @@ const signup = async(req,res) => {
 }
 
 module.exports={
+    login,
     signup
 }
