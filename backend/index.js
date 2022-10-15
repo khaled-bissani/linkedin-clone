@@ -6,7 +6,7 @@ const app = express();
 app.use(express.json());
 
 const authRouter = require('./routes/auth.routes');
-app.use('auth', authRouter);
+app.use('/auth', authRouter);
 
 app.listen(process.env.PORT, (err)=>{
     if(err) console.log(err);
