@@ -17,6 +17,9 @@ app.use('/search', searchRouter);
 const followRouter = require('./routes/follow.routes');
 app.use('/follow', followRouter);
 
+const jobRouter = require('./routes/job.routes');
+app.use('/job', jobRouter);
+
 app.listen(process.env.PORT, (err)=>{
     if(err) console.log(err);
     console.log(`Running server on port ${process.env.PORT}`);
