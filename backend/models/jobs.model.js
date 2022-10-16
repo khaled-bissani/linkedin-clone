@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const User = require('../models/users.model');
 
 const jobSchema = new mongoose.Schema({
     title: {
@@ -24,7 +25,11 @@ const jobSchema = new mongoose.Schema({
     description: {
         type: String,
         required: 'description is required'
-    }
+    },
+    user_id: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "User"
+    }],
 })
 
 jobSchema.index({'$**': 'text'});
