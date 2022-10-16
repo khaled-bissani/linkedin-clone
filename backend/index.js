@@ -12,7 +12,10 @@ const profileRouter = require('./routes/profile.routes');
 app.use('/profile',profileRouter);
 
 const searchRouter = require('./routes/search.routes');
-app.use('/search', searchRouter)
+app.use('/search', searchRouter);
+
+const followRouter = require('./routes/follow.routes');
+app.use('/follow', followRouter);
 
 app.listen(process.env.PORT, (err)=>{
     if(err) console.log(err);

@@ -13,6 +13,7 @@ const login = async(req,res) => {
     if(!matchPassword) return res.status(404).json({message: "Wrong email or password"});
 
     const token = jwt.sign({
+        id:user.id,
         first_name: user.first_name,
         last_name:user.last_name, 
         email:user.email, 
