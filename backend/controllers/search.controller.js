@@ -1,5 +1,4 @@
 const Job = require('../models/jobs.model');
-const { search } = require('../routes/auth.routes');
 
 const searchJob = async(req, res) => {
     const data = req.body;
