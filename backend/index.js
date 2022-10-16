@@ -11,6 +11,9 @@ app.use('/auth', authRouter);
 const profileRouter = require('./routes/profile.routes');
 app.use('/profile',profileRouter);
 
+const searchRouter = require('./routes/search.routes');
+app.use('/search', searchRouter)
+
 app.listen(process.env.PORT, (err)=>{
     if(err) console.log(err);
     console.log(`Running server on port ${process.env.PORT}`);

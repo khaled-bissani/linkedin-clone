@@ -1,9 +1,10 @@
 const Job = require('../models/jobs.model');
+const { search } = require('../routes/auth.routes');
 
 const searchJob = async(req, res) => {
-    const search_job=req.params;
-
-    const results = await Job.find({ $text: { $search: search } });
+    const data = req.body;
+    
+    const results = await Job.find({ $text: { $search: data.job } });
     res.json(results)
 }
 
