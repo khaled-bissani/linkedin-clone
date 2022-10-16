@@ -8,6 +8,9 @@ app.use(express.json());
 const authRouter = require('./routes/auth.routes');
 app.use('/auth', authRouter);
 
+const profileRouter = require('./routes/profile.routes');
+app.use('/profile',profileRouter);
+
 app.listen(process.env.PORT, (err)=>{
     if(err) console.log(err);
     console.log(`Running server on port ${process.env.PORT}`);
