@@ -37,6 +37,16 @@ const Signup = () => {
         });
       }
 
+      function handleEmailChange(e) {
+        setUsers({
+          ...users,
+          user: {
+            ...users.user,
+            email: e.target.value
+          }
+        });
+      }
+
   return (
     <div className='bg-[#f3f2ee] h-screen p-10'>
         <img src={require('../assets/logo.PNG')} alt={"logo"}/>
@@ -45,7 +55,7 @@ const Signup = () => {
             <div className='flex flex-col items-center justify-around border w-[500px] h-[500px] bg-white'>
                 <TextInput type={"text"} placeholder={"First name"} value={users.user.first_name} onChange={handleFirstNameChange}/>
                 <TextInput type={"text"} placeholder={"Last name"}  value={users.user.last_name} onChange={handleLastNameChange}/>
-                <TextInput type={"text"} placeholder={"Email"} />
+                <TextInput type={"text"} placeholder={"Email"} value={users.user.email} onChange={handleEmailChange}/>
                 <TextInput type={"text"} placeholder={"Password"} />
                 <TextInput type={"text"} placeholder={"Country"} />
                 <TextInput type={"text"} placeholder={"City"} />
