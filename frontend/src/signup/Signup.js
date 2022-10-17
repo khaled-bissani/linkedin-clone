@@ -47,6 +47,16 @@ const Signup = () => {
         });
       }
 
+      function handlePasswordChange(e) {
+        setUsers({
+          ...users,
+          user: {
+            ...users.user,
+            password: e.target.value
+          }
+        });
+      }
+
   return (
     <div className='bg-[#f3f2ee] h-screen p-10'>
         <img src={require('../assets/logo.PNG')} alt={"logo"}/>
@@ -56,7 +66,7 @@ const Signup = () => {
                 <TextInput type={"text"} placeholder={"First name"} value={users.user.first_name} onChange={handleFirstNameChange}/>
                 <TextInput type={"text"} placeholder={"Last name"}  value={users.user.last_name} onChange={handleLastNameChange}/>
                 <TextInput type={"text"} placeholder={"Email"} value={users.user.email} onChange={handleEmailChange}/>
-                <TextInput type={"text"} placeholder={"Password"} />
+                <TextInput type={"text"} placeholder={"Password"} value={users.user.password} onChange={handlePasswordChange}/>
                 <TextInput type={"text"} placeholder={"Country"} />
                 <TextInput type={"text"} placeholder={"City"} />
                 <select className='outline-none'>
