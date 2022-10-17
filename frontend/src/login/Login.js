@@ -35,6 +35,11 @@ const Login = () => {
         });
       }
 
+      const handleClick = () => {
+        console.log(users.user)
+        navigate("/home")
+      }
+
   return (
     <div className='bg-[#f3f2ee] h-screen p-10'>
         <img src={require('../assets/logo.PNG')} alt={"logo"}/>
@@ -43,7 +48,7 @@ const Login = () => {
                 <h1 className='text-3xl font-bold tracking-wide mb-5'>Sign in</h1>
                 <TextInput type={"text"} placeholder={"Email"} value={users.user.email} onChange={handleEmailChange}/>
                 <TextInput type={"password"} placeholder={"Password"}  value={users.user.password} onChange={handlePasswordChange}/>
-                <SubmitButton text={"Login"}/>
+                <SubmitButton text={"Login"} onClick={handleClick}/>
                 <p>New to LinkedIn? 
                     <span className='text-[#0b66c3] cursor-pointer' onClick={() =>{
                         navigate("/")
