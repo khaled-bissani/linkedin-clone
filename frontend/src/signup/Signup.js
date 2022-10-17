@@ -87,6 +87,10 @@ const Signup = () => {
         });
       }
 
+      const handleClick = () => {
+        console.log('clicked')
+      }
+
   return (
     <div className='bg-[#f3f2ee] h-screen p-10'>
         <img src={require('../assets/logo.PNG')} alt={"logo"}/>
@@ -104,7 +108,7 @@ const Signup = () => {
                     <option value={1}>Company</option>
                     <option value={2}>Normal User</option>
                 </select>
-                <SubmitButton text={"Signup"} />
+                <SubmitButton text={"Signup"} onClick={handleClick}/>
                 <p>Already on LinkedIn? <span className='text-[#0b66c3]'>Sign in</span></p>
             </div>
         </div>
