@@ -67,6 +67,16 @@ const Signup = () => {
         });
       }
 
+      function handleCityChange(e) {
+        setUsers({
+          ...users,
+          user: {
+            ...users.user,
+            city: e.target.value
+          }
+        });
+      }
+
   return (
     <div className='bg-[#f3f2ee] h-screen p-10'>
         <img src={require('../assets/logo.PNG')} alt={"logo"}/>
@@ -78,7 +88,7 @@ const Signup = () => {
                 <TextInput type={"text"} placeholder={"Email"} value={users.user.email} onChange={handleEmailChange}/>
                 <TextInput type={"text"} placeholder={"Password"} value={users.user.password} onChange={handlePasswordChange}/>
                 <TextInput type={"text"} placeholder={"Country"} value={users.user.country} onChange={handleCountryChange}/>
-                <TextInput type={"text"} placeholder={"City"} />
+                <TextInput type={"text"} placeholder={"City"} value={users.user.city} onChange={handleCityChange}/>
                 <select className='outline-none'>
                     <option>User Type</option>
                     <option value={1}>Company</option>
