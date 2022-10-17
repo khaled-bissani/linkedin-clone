@@ -1,9 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom"
 import SubmitButton from '../components/SubmitButton'
 import TextInput from '../components/TextInput'
 
 const Signup = () => {
+
+    const navigate = useNavigate();
     
     const [users, setUsers] = useState({
         user: {
@@ -88,7 +91,8 @@ const Signup = () => {
       }
 
       const handleClick = () => {
-        console.log('clicked')
+        console.log(users.user)
+        navigate("/home")
       }
 
   return (
