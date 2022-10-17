@@ -17,7 +17,7 @@ const Signup = () => {
         }
       });
 
-      function handleFirstNameChange(e) {
+      const handleFirstNameChange=(e)=> {
         setUsers({
           ...users,
           user: {
@@ -27,7 +27,7 @@ const Signup = () => {
         });
       }
 
-      function handleLastNameChange(e) {
+      const handleLastNameChange=(e)=> {
         setUsers({
           ...users,
           user: {
@@ -37,7 +37,7 @@ const Signup = () => {
         });
       }
 
-      function handleEmailChange(e) {
+      const handleEmailChange=(e)=> {
         setUsers({
           ...users,
           user: {
@@ -47,7 +47,7 @@ const Signup = () => {
         });
       }
 
-      function handlePasswordChange(e) {
+      const handlePasswordChange=(e)=> {
         setUsers({
           ...users,
           user: {
@@ -57,7 +57,7 @@ const Signup = () => {
         });
       }
 
-      function handleCountryChange(e) {
+      const handleCountryChange=(e)=> {
         setUsers({
           ...users,
           user: {
@@ -67,7 +67,7 @@ const Signup = () => {
         });
       }
 
-      function handleCityChange(e) {
+      const handleCityChange=(e)=> {
         setUsers({
           ...users,
           user: {
@@ -77,7 +77,7 @@ const Signup = () => {
         });
       }
 
-      function handleUserTypeChange(e) {
+      const handleUserTypeChange=(e)=> {
         setUsers({
           ...users,
           user: {
