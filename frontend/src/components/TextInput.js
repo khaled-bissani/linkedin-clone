@@ -12,7 +12,7 @@ const TextInput = ({type,placeholder}) => {
 
   return (
     <div>
-        <input value={value} onChange={handleValue} className="border rounded-md w-[300px] pl-4" type={type} placeholder={placeholder} />
+        <input value={value} onChange={handleValue} className="border rounded-md outline-none w-[300px] h-[40px] pl-4" type={type} placeholder={placeholder} />
     </div>
   )
 }
