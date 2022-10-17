@@ -113,7 +113,13 @@ const Signup = () => {
                     <option value={2}>Normal User</option>
                 </select>
                 <SubmitButton text={"Signup"} onClick={handleClick}/>
-                <p>Already on LinkedIn? <span className='text-[#0b66c3]'>Sign in</span></p>
+                <p>Already on LinkedIn? 
+                    <span className='text-[#0b66c3] cursor-pointer' onClick={() =>{
+                        navigate("/login")
+                    }}>
+                        Login
+                    </span>
+                </p>
             </div>
         </div>
     </div>
