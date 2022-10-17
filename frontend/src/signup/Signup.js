@@ -104,7 +104,7 @@ const Signup = () => {
                 <TextInput type={"text"} placeholder={"First name"} value={users.user.first_name} onChange={handleFirstNameChange}/>
                 <TextInput type={"text"} placeholder={"Last name"}  value={users.user.last_name} onChange={handleLastNameChange}/>
                 <TextInput type={"text"} placeholder={"Email"} value={users.user.email} onChange={handleEmailChange}/>
-                <TextInput type={"text"} placeholder={"Password"} value={users.user.password} onChange={handlePasswordChange}/>
+                <TextInput type={"password"} placeholder={"Password"} value={users.user.password} onChange={handlePasswordChange}/>
                 <TextInput type={"text"} placeholder={"Country"} value={users.user.country} onChange={handleCountryChange}/>
                 <TextInput type={"text"} placeholder={"City"} value={users.user.city} onChange={handleCityChange}/>
                 <select className='outline-none' value={users.user.user_type} onChange={handleUserTypeChange}>
