@@ -77,6 +77,16 @@ const Signup = () => {
         });
       }
 
+      function handleUserTypeChange(e) {
+        setUsers({
+          ...users,
+          user: {
+            ...users.user,
+            user_type: e.target.value
+          }
+        });
+      }
+
   return (
     <div className='bg-[#f3f2ee] h-screen p-10'>
         <img src={require('../assets/logo.PNG')} alt={"logo"}/>
@@ -89,7 +99,7 @@ const Signup = () => {
                 <TextInput type={"text"} placeholder={"Password"} value={users.user.password} onChange={handlePasswordChange}/>
                 <TextInput type={"text"} placeholder={"Country"} value={users.user.country} onChange={handleCountryChange}/>
                 <TextInput type={"text"} placeholder={"City"} value={users.user.city} onChange={handleCityChange}/>
-                <select className='outline-none'>
+                <select className='outline-none' value={users.user.user_type} onChange={handleUserTypeChange}>
                     <option>User Type</option>
                     <option value={1}>Company</option>
                     <option value={2}>Normal User</option>
