@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useNavigate } from "react-router-dom"
+import axios from "axios"
 import SubmitButton from '../components/SubmitButton'
 import TextInput from '../components/TextInput'
 
@@ -25,9 +26,14 @@ const Signup = () => {
         });
       }
 
-      const handleClick = () => {
-        console.log(user)
-        navigate("/home")
+      const handleClick = async () => {
+        try {
+          const response = await axios.post(`${process.env.REACT_APP_BASEURL}auth/signup`, user)
+          navigate("/home")
+          return response.data
+        } catch (error) {
+            return error.response.data
+        }
       }
 
   return (
@@ -44,8 +50,8 @@ const Signup = () => {
                 <TextInput type={"text"} placeholder={"City"} value={user.city} onChange={(e)=>handleChange(e,"city")}/>
                 <select className='outline-none' value={user.user_type} onChange={(e)=>handleChange(e,"user_type")}>
                     <option>User Type</option>
-                    <option value={1}>Company</option>
-                    <option value={2}>Normal User</option>
+                    <option value={"634afa3af53f62077dbe4bb2"}>Company</option>
+                    <option value={"634afa3af53f62077dbe4bb3"}>Normal User</option>
                 </select>
                 <SubmitButton text={"Signup"} onClick={handleClick}/>
                 <p>Already on LinkedIn? 
