@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
-import { useNavigate } from "react-router-dom"
+import { useNavigate } from 'react-router-dom'
+import axios from 'axios'
 import SubmitButton from '../components/SubmitButton'
 import TextInput from '../components/TextInput'
 
@@ -18,10 +19,17 @@ const Login = () => {
       ...user, [`${feild}`]: e.target.value
     });
   }
-  
-  const handleClick = () => {
-    console.log(user)
-    navigate("/home")
+
+  const handleClick = async() => {
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_BASEURL}auth/login`, user)
+      navigate("/home")
+      localStorage.setItem("token", response.data.token)
+      localStorage.setItem("user_id", response.data.user_id)
+      return response.data
+    } catch (error) {
+        return error.response.data
+    }
   }
 
   return (
