@@ -8,37 +8,21 @@ const Login = () => {
 
     const navigate = useNavigate();
 
-    const [users, setUsers] = useState({
-        user: {
-          email: '',
-          password: ''
-        }
-      });
-
-      const handleEmailChange=(e)=> {
-        setUsers({
-          ...users,
-          user: {
-            ...users.user,
-            email: e.target.value
-          }
-        });
-      }
-
-      const handlePasswordChange=(e)=> {
-        setUsers({
-          ...users,
-          user: {
-            ...users.user,
-            password: e.target.value
-          }
-        });
-      }
-
-      const handleClick = () => {
-        console.log(users.user)
-        navigate("/home")
-      }
+    const [user, setUser] = useState({
+      email: '',
+      password: ''   
+  });
+  
+  const handleChange=(e,feild)=> {
+    setUser({
+      ...user, [`${feild}`]: e.target.value
+    });
+  }
+  
+  const handleClick = () => {
+    console.log(user)
+    navigate("/home")
+  }
 
   return (
     <div className='bg-[#f3f2ee] h-screen p-10'>
@@ -46,8 +30,8 @@ const Login = () => {
         <div className='flex flex-col items-center bg-[#f3f2ee]'>
             <div className='flex flex-col items-center justify-around border w-[400px] h-[400px] bg-white'>
                 <h1 className='text-3xl font-bold tracking-wide mb-5'>Sign in</h1>
-                <TextInput type={"text"} placeholder={"Email"} value={users.user.email} onChange={handleEmailChange}/>
-                <TextInput type={"password"} placeholder={"Password"}  value={users.user.password} onChange={handlePasswordChange}/>
+                <TextInput type={"text"} placeholder={"Email"} value={user.email} onChange={(e)=>handleChange(e,"email")}/>
+                <TextInput type={"password"} placeholder={"Password"}  value={user.password} onChange={(e)=>handleChange(e,"password")}/>
                 <SubmitButton text={"Login"} onClick={handleClick}/>
                 <p>New to LinkedIn? 
                     <span className='text-[#0b66c3] cursor-pointer' onClick={() =>{
