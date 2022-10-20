@@ -14,16 +14,11 @@ const login = async(req,res) => {
 
     const token = jwt.sign({
         id:user.id,
-        first_name: user.first_name,
-        last_name:user.last_name, 
         email:user.email, 
-        phone_number:user.phone_number, 
-        country:user.country, 
-        city:user.city, 
         user_type:user.user_type}, 
         process.env.JWT_SECRET_KEY, 
         {expiresIn: '2h'});
-    res.status(200).json(token);
+    res.status(200).json({token,user_id:user.id});
 }
 
 const signup = async(req,res) => {
